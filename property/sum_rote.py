@@ -1,3 +1,4 @@
+# Сумма линейного сигмента
 from math import sqrt
 class PathLines:
 
