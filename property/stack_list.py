@@ -1,7 +1,7 @@
-# Не готово
+# Односвязный список
 class StackObj:
     def __init__(self, data):
-        self.__data = None
+        self.__data = data
         self.__next = None
 
     @property
@@ -9,17 +9,17 @@ class StackObj:
         return self.__data
 
     @data.setter
-    def data(self, data):
-        self.__data = data
+    def data(self, value):
+        self.__data = value
 
     @property
     def next(self):
         return self.__next
 
     @next.setter
-    def next(self, next):
-        if isinstance(next, StackObj) or next is None:
-            self.__next = next
+    def next(self, obj):
+        if isinstance(obj, StackObj) or obj is None:
+            self.__next = obj
 
 # Односвязный список
 class Stack:
@@ -41,7 +41,7 @@ class Stack:
         if h is None:
             return
 
-        while h and h.next != self.last:
+        while h.next != self.last:
             h = h.next
 
         if h:
@@ -64,18 +64,12 @@ class Stack:
 
         return rsl
 
+
+'''  
+------  tests ----------- 
 s = Stack()
 top = StackObj("obj_1")
 top2 = StackObj("obj_11")
-top3 = StackObj("obj_1")
-top4 = StackObj("obj_1")
-s.push(top)
-s.push(top2)
-s.push(top)
-s.push(top)
-#res = s.get_data()
-print()
-'''   
     s.push(StackObj("obj_2"))
     s.push(StackObj("obj_3"))
     s.pop()
