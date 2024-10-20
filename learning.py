@@ -1,4 +1,6 @@
+
 class WindowDlg:
+    __title = str()
     def __init__(self, title, width, height):
         self.__title = title
         self.__width = self.__height = None
