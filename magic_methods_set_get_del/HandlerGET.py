@@ -20,3 +20,4 @@ def contact(request):
     return "Сергей Балакирев"
 
 contact({"method": "GET", "url": "contact.html"})
+object
