@@ -1,29 +1,22 @@
+import random
 
-class WindowDlg:
-    __title = str()
-    def __init__(self, title, width, height):
-        self.__title = title
-        self.__width = self.__height = None
-        self.__height = self.height
-        self.__width = self.width
+class RandomPassword:
+    def __init__(self, psw_chars, min_length, max_length):
+        self.psw_chars = psw_chars
+        self.min_length = min_length
+        self.max_length = max_length
 
-    def show(self):
-        print(f"{self.__title}: {self.__width}, {self.__height}")
+    def __call__(self, *args, **kwargs):
+        res = ''
+        for _ in range(random.randint(self.min_length, self.max_length)):
+            res += random.choice(self.psw_chars)
+        return res
 
-    @property
-    def width(self):
-        return self.__width
+min_length = 5
+max_length = 20
+psw_chars = "qwertyuiopasdfghjklzxcvbnm0123456789!@#$%&*"
 
-    @width.setter
-    def width(self, width):
-        if 0 <= width <= 10000:
-            self.__width = width
+rnd = RandomPassword(psw_chars, min_length, max_length)
 
-    @property
-    def height(self):
-        return self.__height
-
-    @height.setter
-    def height(self, height):
-        if 0 <= height <= 10000:
-            self.__height = height
+lst_pass = [rnd() for _ in range(3)]
+print(lst_pass)
